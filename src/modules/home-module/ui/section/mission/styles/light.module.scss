@@ -1,0 +1,110 @@
+@use "/src/common/styles/index.scss" as *;
+
+.contacts {
+  padding: 200px 208px 100px 208px;
+  height: auto;
+
+  @include lg {
+    padding: 140px 104px 80px 104px;
+  }
+  @include md {
+    padding: 100px 52px 60px 52px;
+  }
+  @include s {
+    padding: 64px 20px 32px 20px;
+  }
+
+  .contactsContainer {
+    @include flexRowConstructor(start, space-between, 1rem);
+    width: 100%;
+
+    @include s {
+      gap: 2rem;
+      flex-direction: column-reverse;
+    }
+
+    .image {
+      width: 662px;
+      height: 532px;
+
+      @include lg {
+        width: 586px;
+        height: 480px;
+      }
+      @include md {
+        width: 450px;
+        height: 393px;
+      }
+      @include s {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .content {
+      @include flexColumnConstructor(start, start, 2.5rem);
+      max-width: 742px;
+
+      @include lg {
+        gap: 2rem;
+      }
+      @include md {
+        gap: 1.5rem;
+      }
+      @include s {
+        gap: 1rem;
+      }
+
+      .header {
+        & > :nth-child(1) {
+          @include label_l($red-50-main, 400);
+          margin-bottom: 22px;
+
+          @include lg {
+            margin-bottom: 20px;
+          }
+          @include md {
+            margin-bottom: 16px;
+            @include label_m($red-50-main, 400);
+          }
+          @include s {
+            margin-bottom: 18px;
+            @include label_s($red-50-main, 400);
+          }
+        }
+        & > :nth-child(2) {
+          @include h1($gray-700);
+
+          @include lg {
+            @include h2($gray-700);
+          }
+          @include md {
+            @include h3($gray-700);
+          }
+          @include s {
+            @include h4($gray-700);
+          }
+        }
+      }
+
+      .body {
+        @include flexColumnConstructor(start, start, 1.5rem);
+
+        .bodyBlock {
+          @include text_l($gray-600, 400);
+
+          @include lg {
+            @include text_m($gray-600, 400);
+          }
+          @include md {
+            @include text_s($gray-600, 400);
+          }
+
+          & > span {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

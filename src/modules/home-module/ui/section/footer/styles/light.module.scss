@@ -1,0 +1,203 @@
+@use "/src/common/styles/index.scss" as *;
+
+.footer {
+  background: $gray-700;
+  padding-inline: 208px;
+  padding: 64px 208px 48px 208px;
+  height: auto;
+
+  @include lg {
+    padding: 64px 104px 48px 104px;
+  }
+  @include md {
+    padding: 64px 52px 48px 52px;
+  }
+  @include s {
+    padding: 32px 20px;
+  }
+
+  .footerContainer {
+    @include flexColumnConstructor(start, space-between, 7.5rem);
+
+    @include md {
+      gap: 4.5rem;
+    }
+    @include xmd {
+    }
+    @include s {
+      gap: 2.5rem;
+      border-radius: 24px;
+    }
+
+    .info {
+      @include flexRowConstructor(start, start, 1.5rem);
+      width: 100%;
+
+      @include md {
+        gap: 1.25rem;
+      }
+      @include xmd {
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .logo {
+        @include flexColumnConstructor(start, start, 2.625rem);
+        width: 100%;
+        max-width: 414px;
+
+        .links {
+          @include flexRowConstructor(start, space-between);
+          width: 166px;
+
+          @include xmd {
+            display: none;
+          }
+
+          .linkWrapper {
+            @include flexRowConstructor(center, center);
+
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+
+            background: rgba(58, 58, 58, 0.8);
+          }
+        }
+      }
+
+      .infoBlockContainer {
+        @include flexRowConstructor(start, space-between, 1.5rem);
+        width: 100%;
+
+        @include md {
+          gap: 0.5rem;
+        }
+        @include xmd {
+          flex-wrap: wrap;
+          gap: 2.5rem;
+        }
+
+        .infoBlock {
+          @include flexColumnConstructor(start, start, 1.5rem);
+          width: 100%;
+          min-width: 160px;
+
+          @include xmd {
+            max-width: 210px;
+            min-width: max-content;
+          }
+          @include s {
+            gap: 1rem;
+            max-width: max-content;
+          }
+
+          & > :nth-child(1) {
+            @include text_m($gray-0, 400);
+
+            @include md {
+              @include text_s($gray-0, 400);
+            }
+            @include s {
+              @include text_xs($gray-0, 400);
+            }
+          }
+          :nth-child(2) {
+            @include flexColumnConstructor(start, start, 0.5rem);
+
+            @include s {
+              gap: 0.875rem;
+            }
+
+            & > * {
+              @include text_m($gray-300, 400);
+              opacity: 0.8;
+
+              @include md {
+                @include text_s($gray-0, 400);
+              }
+              @include s {
+                @include text_xs($gray-0, 400);
+              }
+            }
+            & > a {
+              transition: all 150ms;
+              cursor: pointer;
+              text-decoration: none;
+
+              &:hover {
+                // color: $accent-0;
+              }
+            }
+          }
+        }
+
+        .iconUpWrapper {
+          cursor: pointer;
+
+          border-radius: 120px;
+          padding: 21px 19px;
+          width: 60px;
+          height: 60px;
+
+          background: $gray-600;
+
+          @include xmd {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 50px;
+          }
+        }
+
+        .linksWrapper {
+          display: none;
+
+          @include xmd {
+            @include flexRowConstructor(start, start, 0.15rem);
+          }
+
+          .linkWrapper {
+            @include flexRowConstructor(center, center);
+
+            border-radius: 40px;
+            min-width: 40px;
+            min-height: 40px;
+
+            background: rgba(58, 58, 58, 0.8);
+
+            & > * {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .links {
+      @include flexRowConstructor(start, space-between);
+      width: 100%;
+
+      @include s {
+        flex-direction: column-reverse;
+      }
+
+      :nth-child(1) {
+        @include text_s($gray-400, 400);
+
+        @include md {
+          @include text_xs($gray-0, 400);
+        }
+      }
+      :nth-child(2) {
+        @include text_s($gray-400, 400);
+        text-decoration: none;
+        cursor: pointer;
+
+        @include md {
+          @include text_xs($gray-0, 400);
+        }
+      }
+    }
+  }
+}

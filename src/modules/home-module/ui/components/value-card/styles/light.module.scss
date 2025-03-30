@@ -1,0 +1,57 @@
+@use "/src/common/styles/index.scss" as *;
+
+.card {
+  @include flexColumnConstructor(start, start);
+
+  border-radius: 24px;
+  padding: 22px 24px 24px 24px;
+  width: 100%;
+  min-height: 337px;
+  height: auto;
+
+  background: $gray-0;
+  transition: all 300ms;
+
+  &:hover {
+    background: $red-50-main;
+
+    .buttonWrapper {
+      display: block;
+    }
+
+    .icon {
+      background: rgba(245, 245, 245, 0.25);
+
+      & > * > * {
+        fill: $gray-0;
+      }
+    }
+  }
+
+  .icon {
+    @include flexColumnConstructor(center, center);
+
+    border-radius: 16px;
+    width: 64px;
+    height: 64px;
+
+    background: $gray-100;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .contentWrapper {
+    @include flexColumnConstructor(start, start);
+    .title {
+      @include title3($gray-700);
+    }
+    .description {
+      @include text_m($gray-500, 500);
+    }
+  }
+
+  .buttonWrapper {
+    display: none;
+    width: 100%;
+  }
+}

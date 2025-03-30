@@ -1,0 +1,85 @@
+@use "/src/common/styles/index.scss" as *;
+
+.contacts {
+  padding: 100px 208px;
+  height: auto;
+
+  @include lg {
+    padding: 80px 104px;
+  }
+  @include md {
+    padding: 60px 52px;
+  }
+  @include s {
+    padding: 32px 20px;
+  }
+
+  .contactsContainer {
+    @include flexColumnConstructor(start, start, 4.375rem);
+    width: 100%;
+
+    @include lg {
+      gap: 50px;
+    }
+    @include md {
+      gap: 40px;
+    }
+    @include s {
+      gap: 32px;
+    }
+
+    .title {
+      @include flexRowConstructor(start, space-between, 0.5rem);
+      width: 100%;
+
+      @include s {
+        flex-direction: column;
+      }
+
+      & > * > :nth-child(1) {
+        @include flexColumnConstructor(start, start, 1.375rem);
+
+        & > :nth-child(1) {
+          @include label_l($red-50-main);
+        }
+        & > :nth-child(2) {
+          @include h2($gray-700);
+        }
+      }
+
+      & :nth-child(2) {
+        align-self: flex-end;
+
+        @include s {
+          align-self: flex-start;
+        }
+
+        & > :nth-child(1) {
+          // width: 742px;
+
+          @include text_l($gray-600);
+        }
+      }
+    }
+
+    .cardsWrapper {
+      overflow: hidden;
+      @include flexRowConstructor(start, start, 1.25rem);
+      flex-wrap: wrap;
+
+      @include s {
+        justify-content: center;
+      }
+
+      & > div {
+        width: 100%;
+        max-width: 24%;
+        min-width: 293px;
+
+        @include s {
+          max-width: none;
+        }
+      }
+    }
+  }
+}

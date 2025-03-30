@@ -1,0 +1,41 @@
+@use "/src/common/styles/index.scss" as *;
+
+.button {
+  cursor: pointer;
+  @include flexColumnConstructor(center, center);
+
+  border-radius: 14px;
+  width: 232px;
+  height: 58px;
+
+  @include lg {
+    width: 203px;
+    height: 55px;
+  }
+  @include md {
+    border-radius: 12px;
+    padding: 14px 32px;
+    width: 187px;
+    height: 52px;
+  }
+  @include s {
+    width: 100%;
+  }
+}
+
+.default {
+  background: $red_50_main;
+  @include text_l($gray-0, 500);
+
+  @include lg {
+    @include text_m($gray-0, 500);
+  }
+  @include md {
+    @include text_s($gray-0, 500);
+  }
+}
+
+.alternative {
+  background: $gray-0;
+  @include text_l($red_50_main, 500);
+}

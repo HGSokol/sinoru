@@ -1,0 +1,246 @@
+@use "/src/common/styles/index.scss" as *;
+
+.contacts {
+  padding: 100px 208px 160px 208px;
+  width: 100%;
+  height: auto;
+
+  @include lg {
+    padding: 80px 104px 140px 104px;
+  }
+  @include md {
+    padding: 60px 52px 100px 52px;
+  }
+  @include s {
+    padding: 32px 20px 64px 20px;
+  }
+
+  // @include lg {
+  // }
+  // @include md {
+  // }
+  // @include s {
+  // }
+
+  .contactsContainer {
+    @include flexColumnConstructor(start, start);
+
+    width: 100%;
+    height: auto;
+
+    @include md {
+      height: auto;
+      flex-direction: column;
+    }
+    @include s {
+      gap: 2rem;
+      border-radius: 24px;
+    }
+
+    .breadCrumbs {
+      margin-bottom: 80px;
+
+      @include md {
+        margin-bottom: 60px;
+      }
+      @include s {
+        margin-bottom: 40px;
+      }
+
+      & :nth-child(1) {
+        text-decoration: none;
+        @include text_l($gray-600);
+
+        cursor: pointer;
+        @include lg {
+          @include text_m($gray-600);
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-600);
+        }
+      }
+      & :nth-child(2) {
+        @include text_l($gray-400);
+
+        @include lg {
+          @include text_m($gray-400);
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-400);
+        }
+      }
+    }
+
+    .privacyTitle {
+      @include flexColumnConstructor(start, start, 1.25rem);
+
+      margin-bottom: 50px;
+
+      @include s {
+        margin-bottom: 18px;
+      }
+
+      & :nth-child(1) {
+        @include label_l($red-50-main);
+
+        @include lg {
+        }
+        @include md {
+        }
+        @include s {
+          @include label_s($red-50-main);
+        }
+      }
+      & :nth-child(2) {
+        @include h1();
+
+        @include lg {
+          @include h2();
+        }
+        @include md {
+        }
+        @include s {
+          @include h5();
+        }
+      }
+    }
+
+    .privacyContent {
+      @include flexColumnConstructor(start, start, 3.125rem);
+
+      @include s {
+        gap: 1.125rem;
+      }
+
+      .privacyDescritption {
+        @include text_l($gray-600, 400);
+
+        @include lg {
+          @include text_m($gray-600, 400);
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-600, 400);
+        }
+      }
+
+      .bold {
+        @include text_l($gray-600, 600);
+        font-size: 20px;
+
+        @include lg {
+          @include text_m($gray-600, 600);
+          font-size: 18px;
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-600, 600);
+          font-size: 16px;
+        }
+      }
+
+      .red {
+        @include text_m($red-50-main, 600);
+        font-size: 18px;
+
+        @include s {
+          @include text_s($gray-600, 600);
+          font-size: 16px;
+        }
+      }
+
+      .listsWrapper {
+        @include flexColumnConstructor(start, start, 3.125rem);
+        counter-reset: list-counter;
+        list-style: none;
+        padding-left: 0;
+
+        @include s {
+          gap: 1.125rem;
+        }
+      }
+
+      .listContainer {
+        @include flexColumnConstructor(start, start, 2rem);
+        position: relative;
+        padding-left: 1.5rem;
+
+        @include s {
+          gap: 1.125rem;
+        }
+
+        &::before {
+          content: counter(list-counter) ".";
+          counter-increment: list-counter;
+          @include title1();
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          @include lg {
+            @include title2();
+          }
+          @include md {
+          }
+          @include s {
+            @include title4();
+          }
+        }
+      }
+
+      .listTitle {
+        @include title1();
+
+        @include lg {
+          @include title2();
+        }
+        @include md {
+        }
+        @include s {
+          @include title4();
+        }
+      }
+
+      .listDescritption {
+        @include text_l($gray-600, 400);
+
+        margin-left: -1.5rem;
+
+        @include lg {
+          @include text_m($gray-600, 400);
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-600, 400);
+        }
+      }
+
+      .ulWrapper {
+        @include flexColumnConstructor(start, start, 1rem);
+      }
+
+      .ulItem {
+        @include text_l($gray-600, 400);
+        list-style-type: disc;
+
+        margin-left: 0.25rem;
+
+        @include lg {
+          @include text_m($gray-600, 400);
+        }
+        @include md {
+        }
+        @include s {
+          @include text_s($gray-600, 400);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+@use "color.scss" as *;
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/src/common/fonts/BebasNeue-Bold.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+}
+
+@mixin fontConstructor(
+  $size: 1,
+  $weight: 700,
+  $color: #262626,
+  $line_height: 100%
+) {
+  font-family: "Bebas Neue", sans-serif;
+  color: $color;
+  font-size: $size + em;
+  font-weight: $weight;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "CRSV" 0, "SHRP" 0;
+  line-height: $line_height;
+}
+@mixin fontConstructorAlt(
+  $size: 1,
+  $weight: 400,
+  $color: #262626,
+  $line_height: 100%
+) {
+  font-family: "Inter", sans-serif;
+  color: $color;
+  font-size: $size + em;
+  font-weight: $weight;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0, "CRSV" 0, "SHRP" 0;
+  line-height: $line_height;
+}
+
+@mixin h0($color: $gray-700) {
+  @include fontConstructor(5.375, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+@mixin h1($color: $gray-700) {
+  @include fontConstructor(5, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+@mixin h2($color: $gray-700) {
+  @include fontConstructor(4.5, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+@mixin h3($color: $gray-700) {
+  @include fontConstructor(4, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+@mixin h4($color: $gray-700) {
+  @include fontConstructor(3.25, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+@mixin h5($color: $gray-700) {
+  @include fontConstructor(2.625, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+@mixin h6($color: $gray-700) {
+  @include fontConstructor(2.25, 700, $color);
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+@mixin title1($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.75, $fw, $color);
+  line-height: 129%;
+  letter-spacing: -0.04em;
+}
+@mixin title2($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.75, $fw, $color);
+  line-height: 123%;
+  letter-spacing: -0.04em;
+}
+@mixin title3($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.375, $fw, $color);
+  line-height: 127%;
+  letter-spacing: -0.05em;
+}
+@mixin title4($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.25, $fw, $color);
+  line-height: 130%;
+  letter-spacing: -0.03em;
+}
+
+@mixin text_l($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.25, $fw, $color);
+  line-height: 150%;
+  letter-spacing: -0.03em;
+}
+@mixin text_m($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1.125, $fw, $color);
+  line-height: 150%;
+  letter-spacing: -0.04em;
+}
+@mixin text_s($color: $gray-700, $fw: 600) {
+  @include fontConstructorAlt(1, $fw, $color);
+  line-height: 150%;
+  letter-spacing: -0.04em;
+}
+@mixin text_xs($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(0.875, $fw, $color);
+  line-height: 171%;
+  letter-spacing: -0.04em;
+}
+@mixin text_xxs($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(0.75, $fw, $color);
+  line-height: 142%;
+  letter-spacing: -0.02em;
+}
+
+@mixin label_l($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(1.125, $fw, $color);
+  line-height: 150%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+@mixin label_m($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(1, $fw, $color);
+  line-height: 169%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+@mixin label_s($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(0.875, $fw, $color);
+  line-height: 193%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+@mixin label_xs($color: $gray-700, $fw: 400) {
+  @include fontConstructorAlt(0.75, $fw, $color);
+  line-height: 200%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}

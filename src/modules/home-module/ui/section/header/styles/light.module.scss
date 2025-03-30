@@ -1,0 +1,157 @@
+@use "/src/common/styles/index.scss" as *;
+
+.header {
+  z-index: 100;
+  @include flexRowConstructor(center, start);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-inline: 208px;
+  width: 100%;
+  height: 90px;
+
+  @include lg {
+    padding-inline: 104px;
+    height: 84px;
+  }
+  @include md {
+    padding-inline: 52px;
+  }
+  @include s {
+    padding-inline: 20px;
+    height: 68px;
+  }
+
+  .sectionContainer {
+    position: relative;
+    @include flexRowConstructor(center, space-between);
+    width: 100%;
+
+    .leftSide {
+      & > * {
+        width: 102px;
+        height: 48px;
+      }
+
+      @include lg {
+        & > * {
+          width: 86px;
+          height: 42px;
+        }
+      }
+      @include md {
+        & > * {
+          width: 86px;
+          height: 42px;
+        }
+      }
+      @include s {
+        & > * {
+          width: 68px;
+          height: 32px;
+        }
+      }
+    }
+
+    .rightSide {
+      @include flexRowConstructor(start, start, 3rem);
+
+      @include lg {
+        gap: 2.5rem;
+      }
+      @include xmd {
+        display: none;
+      }
+
+      & > * {
+        list-style: none;
+      }
+
+      & > li > * {
+        text-decoration: none;
+        @include text_m($gray-0, 400);
+
+        @include lg {
+          @include text_s($gray-0, 400);
+        }
+      }
+    }
+
+    .burgerMenu {
+      display: none;
+
+      @include xmd {
+        display: block;
+      }
+    }
+
+    .burgerMenuContainer {
+      z-index: 100;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+
+      backdrop-filter: blur(10px);
+      background: rgba(37, 37, 40, 0.7);
+
+      .burgerBody {
+        @include flexColumnConstructor(start, start, 3.5rem);
+
+        position: absolute;
+        width: 75%;
+        height: 100dvh;
+        right: 0;
+        background: $gray-700;
+
+        padding: 1.25rem 1.25rem 3rem 1.25rem;
+
+        .headerMenu {
+          @include flexRowConstructor(center, space-between);
+          width: 100%;
+        }
+
+        .bodyMenu {
+          height: 90%;
+          @include flexColumnConstructor(start, space-between);
+          width: 100%;
+
+          .navigation {
+            @include flexColumnConstructor(start, start, 2rem);
+            width: 100%;
+
+            & > li {
+              list-style: none;
+              width: 100%;
+              cursor: pointer;
+
+              & > a {
+                width: 100%;
+                @include text_m($gray-0, 500);
+                text-decoration: none;
+              }
+            }
+          }
+
+          .links {
+            @include flexRowConstructor(start, space-between);
+            width: 178px;
+
+            .linkWrapper {
+              @include flexRowConstructor(center, center);
+
+              border-radius: 50px;
+              width: 50px;
+              height: 50px;
+
+              background: rgba(58, 58, 58, 0.8);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.headerAlt {
+  background: $gray-700;
+}

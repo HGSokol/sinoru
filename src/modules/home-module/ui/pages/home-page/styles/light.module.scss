@@ -1,0 +1,14 @@
+@use "/src/common/styles/index.scss" as *;
+
+.mapWrapper {
+  background: linear-gradient(
+      180deg,
+      #f5f5f5 0%,
+      rgba(245, 245, 245, 0.7) 42.19%,
+      #f5f5f5 100%
+    ),
+    url("/src/common/assets/bg-map.webp");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
