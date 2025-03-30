@@ -7,10 +7,6 @@
   max-width: 100vw;
 
   .slider {
-    // overflow: hidden;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
     width: 100vw;
     height: 100%;
     height: fit-content;
@@ -21,7 +17,6 @@
 
     display: flex;
     transition: background-image 1s ease-in-out;
-    display: flex;
     transition: transform 1s ease-in-out;
 
     height: calc(1000px + 90px);
@@ -33,7 +28,7 @@
       height: calc(750px + 90px);
     }
     @include s {
-      height: calc(660px + 90px);
+      height: calc(510px + 90px);
     }
 
     .slide {

@@ -1,6 +1,7 @@
 @use "/src/common/styles/index.scss" as *;
 
 .contacts {
+  z-index: -1;
   padding: 100px 208px 160px 208px;
   width: 100%;
   height: auto;
@@ -38,6 +39,7 @@
     }
 
     .breadCrumbs {
+      position: relative;
       margin-bottom: 80px;
 
       @include md {
@@ -243,4 +245,8 @@
       }
     }
   }
+}
+
+.fade {
+  z-index: -1;
 }

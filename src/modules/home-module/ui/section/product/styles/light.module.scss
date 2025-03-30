@@ -39,9 +39,26 @@
 
         & :nth-child(1) {
           @include label_l($red-50-main);
+
+          @include md {
+            @include label_m($red-50-main);
+          }
+          @include s {
+            @include label_s($red-50-main);
+          }
         }
         & :nth-child(2) {
           @include h1($gray-700);
+
+          @include lg {
+            @include h2($gray-700);
+          }
+          @include md {
+            @include h3($gray-700);
+          }
+          @include s {
+            @include h4($gray-700);
+          }
         }
         & :nth-child(3) {
           @include text_l($gray-600, 400);
@@ -67,13 +84,14 @@
     @include flexRowConstructor(start, start, 1.25rem);
     flex-wrap: wrap;
 
-    & > div {
+    & > * {
       width: 100%;
-      max-width: 24%;
-      min-width: 293px;
+      max-width: 23%;
+      min-width: 233px;
 
       @include s {
         max-width: none;
+        min-width: 100%;
       }
     }
   }

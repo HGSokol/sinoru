@@ -37,9 +37,26 @@
 
       & :nth-child(1) {
         @include label_l($red-50-main);
+
+        @include md {
+          @include label_m($red-50-main);
+        }
+        @include s {
+          @include label_s($red-50-main);
+        }
       }
       & :nth-child(2) {
-        @include h2($gray-700);
+        @include h1($gray-700);
+
+        @include lg {
+          @include h2($gray-700);
+        }
+        @include md {
+          @include h3($gray-700);
+        }
+        @include s {
+          @include h4($gray-700);
+        }
       }
       & :nth-child(3) {
         @include s {
@@ -59,9 +76,23 @@
         & :nth-child(1) {
           @include h4($gray-700);
           border-bottom: 1px solid $gray-200;
+
+          @include lg {
+            @include h5($gray-700);
+          }
+          @include md {
+            @include h6($gray-700);
+          }
         }
         & :nth-child(2) {
           @include text_l($gray-700, 400);
+
+          @include lg {
+            @include text_m($gray-700, 400);
+          }
+          @include md {
+            @include text_s($gray-700, 400);
+          }
         }
         & :nth-child(3) {
           border-radius: 16px;

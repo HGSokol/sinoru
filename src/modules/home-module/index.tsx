@@ -1,7 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 
 import HomePage from "~/modules/home-module/ui/pages/home-page";
-import PrivacyPage from "~/modules/home-module/ui/pages/privacy-page";
 
 const homeModule: RouteObject[] = [
   {
@@ -10,7 +9,12 @@ const homeModule: RouteObject[] = [
   },
   {
     path: "/privacy",
-    element: <PrivacyPage />,
+    async lazy() {
+      const PrivacyPage = await import(
+        "~/modules/home-module/ui/pages/privacy-page"
+      );
+      return { Component: PrivacyPage.default };
+    },
   },
 ];
 

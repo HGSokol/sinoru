@@ -34,9 +34,26 @@
 
       & :nth-child(1) {
         @include label_l($red-50-main);
+
+        @include md {
+          @include label_m($red-50-main);
+        }
+        @include s {
+          @include label_s($red-50-main);
+        }
       }
       & :nth-child(2) {
         @include h1($gray-700);
+
+        @include lg {
+          @include h2($gray-700);
+        }
+        @include md {
+          @include h3($gray-700);
+        }
+        @include s {
+          @include h4($gray-700);
+        }
       }
     }
 
@@ -55,6 +72,11 @@
         @include flexColumnConstructor(start, start, 1.5rem);
 
         max-width: 47%;
+
+        @include s {
+          max-width: none;
+          width: 100%;
+        }
 
         & :nth-child(1) {
           width: 100%;
@@ -82,12 +104,13 @@
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        height: 400px; // Можно настроить по необходимости
         gap: 16px;
-        -webkit-overflow-scrolling: touch; // Для плавного скролла на iOS
+        -webkit-overflow-scrolling: touch;
+
+        height: 240px;
 
         & > * {
-          flex: 0 0 85%; // Ширина каждого элемента карусели
+          flex: 0 0 89%;
           scroll-snap-align: start;
           border-radius: 20px;
           background-position: center;
@@ -95,12 +118,13 @@
           background-size: cover;
         }
 
-        // Сбрасываем grid-позиционирование для мобильной версии
         .photo1,
         .photo2,
         .photo3,
         .photo4 {
           grid-area: auto;
+
+          height: 220px;
         }
       }
 

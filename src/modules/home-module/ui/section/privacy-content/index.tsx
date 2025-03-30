@@ -7,7 +7,12 @@ const PrivacyContent = () => {
   return (
     <div id="Contacts" className={styles.contacts}>
       <div className={styles.contactsContainer}>
-        <Slide direction="up" duration={400} triggerOnce>
+        <Slide
+          direction="up"
+          duration={400}
+          triggerOnce
+          // className={styles.fade}
+        >
           <div className={styles.breadCrumbs}>
             <Link to="/">Главная /</Link>
             <span> Политика конфидициальности</span>
@@ -25,7 +30,12 @@ const PrivacyContent = () => {
               данные, обеспечивая их безопасность и использование только в
               рамках, предусмотренных законодательством и данной Политикой.
             </span>
-            <Slide direction="up" duration={400} triggerOnce>
+            <Slide
+              direction="up"
+              duration={400}
+              triggerOnce
+              className={styles.fade}
+            >
               <ol className={styles.listsWrapper}>
                 <li className={styles.listContainer}>
                   <div className={styles.listTitle}>Общие положения</div>
