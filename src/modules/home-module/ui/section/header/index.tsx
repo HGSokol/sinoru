@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import BurgerMenu from "~/common/icons/burger";
@@ -8,7 +9,6 @@ import Whatsup from "~/common/icons/whatsup";
 import Telegram from "~/common/icons/telegram";
 
 import style from "./styles/light.module.scss";
-import { Fade } from "react-awesome-reveal";
 
 const linkList = [
   "О компании",
@@ -19,8 +19,8 @@ const linkList = [
 ];
 
 export const linkSocial = [
-  { icon: <Instagram />, link: "insta" },
-  { icon: <Whatsup />, link: "wiber" },
+  { icon: <Instagram />, link: "https://www.instagram.com/" },
+  { icon: <Whatsup />, link: "https://www.whatsapp.com/?lang=ru_RU" },
   { icon: <Telegram />, link: "tg" },
 ];
 
@@ -30,6 +30,7 @@ type HeaderProps = {
 
 const Header = ({ alt }: HeaderProps) => {
   const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (menu) {
@@ -44,19 +45,15 @@ const Header = ({ alt }: HeaderProps) => {
   }, [menu]);
 
   return (
-    <Fade
-      duration={500}
-      triggerOnce
-      className={`${style.header} ${alt && style.headerAlt}`}
-    >
+    <div className={`${style.header} ${alt && style.headerAlt}`}>
       <div className={style.sectionContainer}>
-        <div className={style.leftSide}>
+        <Link to={"/"} className={style.leftSide}>
           <Logo width={38} />
-        </div>
+        </Link>
         <ul className={style.rightSide}>
           {linkList.map((e, i) => {
             return (
-              <li key={`${e}-${i}`}>
+              <li key={`${e}-${i}`} onClick={() => navigate("/")}>
                 <a href={`#${e}`}>{e}</a>
               </li>
             );
@@ -113,7 +110,7 @@ const Header = ({ alt }: HeaderProps) => {
           </div>
         )}
       </div>
-    </Fade>
+    </div>
   );
 };
 

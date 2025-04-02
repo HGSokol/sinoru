@@ -5,10 +5,11 @@ import Form from "../../components/form";
 
 import styles from "./styles/light.module.scss";
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div id="Contacts" className={styles.contacts}>
+    <div id="Контакты" className={styles.contacts}>
       <div className={styles.contactsContainer}>
         <div className={styles.info}>
           <Slide direction="up" duration={400} triggerOnce>
@@ -25,19 +26,24 @@ const Contact = () => {
                 <div>
                   <Geo />
                 </div>
-                <span>ул. Московская, 294, Москва, Россия</span>
+                <Link
+                  to="https://yandex.by/maps/213/moscow/geo/moskovskaya_ulitsa/10050978/?ll=37.416188%2C55.671232&z=17.07"
+                  target="_blank"
+                >
+                  ул. Московская, 294, Москва, Россия
+                </Link>
               </div>
               <div className={styles.infoRow}>
                 <div>
                   <Mail />
                 </div>
-                <span>Sinoru.ru@gmail.com</span>
+                <Link to="mailto:sinoru.ru@gmail.com">Sinoru.ru@gmail.com</Link>
               </div>
               <div className={styles.infoRow}>
                 <div>
                   <Phone />
                 </div>
-                <span>+7 (945) 834 64 68</span>
+                <Link to="tel:+79458346468">+7 (945) 834 64 68</Link>
               </div>
             </div>
           </Slide>

@@ -6,6 +6,8 @@ import styles from "./styles/light.module.scss";
 import Button from "../../components/button";
 import { Slide } from "react-awesome-reveal";
 import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
+import Form from "../../components/form";
 
 const data = [
   {
@@ -29,10 +31,11 @@ const data = [
 ];
 
 const Offer = () => {
+  const { contactForm, handleToggleModal } = useForm();
   const [openSlide, setOpenSlide] = useState(0);
 
   return (
-    <div className={styles.offer}>
+    <div id={"Сотрудничество"} className={styles.offer}>
       <div className={styles.offerContainer}>
         <Slide direction="up" duration={400} triggerOnce>
           <div className={styles.title}>
@@ -41,7 +44,11 @@ const Offer = () => {
               Мы предлагаем разные форматы сотрудничества — выберите тот,
               который подходит именно вам.
             </div>
-            <Button variant="default" text="Оставить заявку" />
+            <Button
+              onClick={handleToggleModal}
+              variant="default"
+              text="Оставить заявку"
+            />
           </div>
         </Slide>
         <Slide direction="up" duration={400} triggerOnce>
@@ -63,11 +70,17 @@ const Offer = () => {
               </div>
             ))}
             <div className={styles.buttonWrapper}>
-              <Button variant="default" text="Оставить заявку" />
+              <Button
+                width="100"
+                onClick={handleToggleModal}
+                variant="default"
+                text="Оставить заявку"
+              />
             </div>
           </div>
         </Slide>
       </div>
+      {contactForm && <Form alt isSubmit={handleToggleModal} />}
     </div>
   );
 };

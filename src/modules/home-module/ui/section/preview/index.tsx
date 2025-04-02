@@ -1,17 +1,14 @@
-import { useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-import Button from "../../components/button";
 import { linkSocial } from "../header";
+import { useForm } from "../../hooks/useForm";
+import Button from "../../components/button";
 import Form from "../../components/form";
 
 import style from "./styles/light.module.scss";
 
 const Preview = () => {
-  const [contactForm, setContactForm] = useState(false);
-
-  const handleCloseModal = useCallback(() => {
-    setContactForm((prev) => !prev);
-  }, [setContactForm]);
+  const { contactForm, handleToggleModal } = useForm();
 
   return (
     <div className={style.previewWrapper}>
@@ -24,30 +21,27 @@ const Preview = () => {
             Мы стремимся к совершенству в каждом аспекте работы – от технологий
             производства до взаимодействия с клиентами и партнерами.
           </div>
-          <Button
-            onClick={() => setContactForm((prev) => !prev)}
-            text="Отправить заявку"
-          />
+          <Button onClick={handleToggleModal} text="Отправить заявку" />
         </div>
         <div className={style.linksWrapper}>
           <div className={style.links}>
             {linkSocial.map((e, i) => {
               return (
-                <a
+                <Link
                   className={style.linkWrapper}
                   key={i}
-                  href={e.link}
+                  to={e.link}
                   target="_blank"
                   rel="noreferrer"
                 >
                   {e.icon}
-                </a>
+                </Link>
               );
             })}
           </div>
         </div>
-        {contactForm && <Form alt isSubmit={handleCloseModal} />}
       </Fade>
+      {contactForm && <Form alt isSubmit={handleToggleModal} />}
     </div>
   );
 };

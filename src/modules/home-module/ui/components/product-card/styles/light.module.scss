@@ -8,6 +8,7 @@
   width: 100%;
   min-height: 401px;
   height: auto;
+  flex: 1;
 
   background: $gray-0;
   transition: all 300ms;
@@ -32,9 +33,28 @@
     @include flexColumnConstructor(start, start, 0.5rem);
     .title {
       @include title3($gray-700);
+
+      @include lg {
+        @include title4($gray-700);
+      }
+      @include md {
+        @include text_m($gray-700);
+      }
+      @include s {
+        @include title4($gray-700);
+      }
     }
     .description {
       @include text_m($gray-500, 500);
+
+      @include lg {
+        @include text_s($gray-500, 500);
+      }
+      @include md {
+      }
+      @include s {
+        @include text_xs($gray-500, 400);
+      }
     }
   }
 

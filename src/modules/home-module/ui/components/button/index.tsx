@@ -16,7 +16,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={`${style.button} ${style[variant]}`}
-      style={{ width }}
+      style={{ width: `${width}%` }}
       {...props}
     >
       {text}

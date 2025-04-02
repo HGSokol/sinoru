@@ -69,28 +69,37 @@
       @include flexColumnConstructor(start, start, 3.75rem);
       padding-top: 47px;
 
+      @include s {
+        gap: 2.5rem;
+        padding-top: 0px;
+      }
+
       .card {
         width: 100%;
         cursor: pointer;
 
         & :nth-child(1) {
           @include h4($gray-700);
+          padding-bottom: 12px;
           border-bottom: 1px solid $gray-200;
 
           @include lg {
             @include h5($gray-700);
           }
           @include md {
+            padding-bottom: 8px;
             @include h6($gray-700);
           }
         }
         & :nth-child(2) {
+          padding-block: 24px;
           @include text_l($gray-700, 400);
 
           @include lg {
             @include text_m($gray-700, 400);
           }
           @include md {
+            padding-block: 16px;
             @include text_s($gray-700, 400);
           }
         }
@@ -109,6 +118,7 @@
       }
 
       .buttonWrapper {
+        width: 100%;
         display: none;
         @include s {
           display: block;

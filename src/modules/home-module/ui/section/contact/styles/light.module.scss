@@ -108,6 +108,7 @@
           & > :nth-child(2) {
             @include label_l($gray-600, 500);
             text-transform: none;
+            text-decoration: none;
 
             @include lg {
               @include label_m($gray-600, 500);

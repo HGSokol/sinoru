@@ -2,11 +2,14 @@
 
 .form {
   @include flexColumnConstructor(start, start, 2.5rem);
+  z-index: 9999;
 
   padding: 53px 0px 0px 0px;
   max-width: 608px;
   width: 100%;
 
+  @include lg {
+  }
   @include md {
     max-width: none;
   }
@@ -37,8 +40,22 @@
 
         @include text_l($gray-700, 400);
 
+        @include lg {
+          @include text_m($gray-700, 400);
+        }
+        @include md {
+          @include text_s($gray-700, 400);
+        }
+
         & ::placeholder {
           @include text_l($gray-400, 400);
+
+          @include lg {
+            @include text_m($gray-400, 400);
+          }
+          @include md {
+            @include text_s($gray-400, 400);
+          }
         }
       }
       .inputError {
@@ -63,8 +80,22 @@
 
       @include text_l($gray-700, 400);
 
+      @include lg {
+        @include text_m($gray-700, 400);
+      }
+      @include md {
+        @include text_s($gray-700, 400);
+      }
+
       & ::placeholder {
         @include text_l($gray-400, 400);
+
+        @include lg {
+          @include text_m($gray-400, 400);
+        }
+        @include md {
+          @include text_s($gray-400, 400);
+        }
       }
     }
     .textareaAlt {
@@ -126,9 +157,26 @@
     .sendedWrapper {
       & :nth-child(1) {
         @include label_l($red-50-main);
+
+        @include md {
+          @include label_m($red-50-main);
+        }
+        @include s {
+          @include label_s($red-50-main);
+        }
       }
       & :nth-child(2) {
         @include h2($gray-700);
+
+        @include lg {
+          @include h3($gray-700);
+        }
+        @include md {
+          @include h4($gray-700);
+        }
+        @include s {
+          @include h5($gray-700);
+        }
       }
       & :nth-child(3) {
         @include text_l($gray-600);
@@ -241,11 +289,31 @@
 
         & :nth-child(1) {
           @include label_l($red-50-main);
-          font-size: 18px;
+          margin-bottom: 18px;
+
+          @include md {
+            margin-bottom: 16px;
+            @include label_m($red-50-main);
+          }
+
+          @include s {
+            margin-bottom: 16px;
+            @include label_s($red-50-main);
+          }
         }
         & :nth-child(2) {
           @include h2($gray-700);
           font-size: 72px;
+
+          @include lg {
+            @include h3($gray-700);
+          }
+          @include md {
+            @include h4($gray-700);
+          }
+          @include s {
+            @include h5($gray-700);
+          }
         }
         & :nth-child(3) {
           @include text_l($gray-600);

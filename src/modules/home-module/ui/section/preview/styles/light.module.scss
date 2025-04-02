@@ -44,7 +44,8 @@
         @include h2($gray-0);
       }
       @include s {
-        @include h6($gray-0);
+        @include h4($gray-0);
+        margin-bottom: 1rem;
       }
     }
 
@@ -58,6 +59,7 @@
         @include text_m($gray-0, 400);
       }
       @include md {
+        margin-bottom: 40px;
         @include text_s($gray-0, 400);
       }
     }

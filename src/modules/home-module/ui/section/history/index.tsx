@@ -1,4 +1,5 @@
 import { Slide } from "react-awesome-reveal";
+
 import styles from "./styles/light.module.scss";
 
 const data = [
@@ -26,7 +27,7 @@ const data = [
 
 const History = () => {
   return (
-    <div className={styles.contacts}>
+    <div id={"История бренда"} className={styles.contacts}>
       <div className={styles.contactsContainer}>
         <Slide
           direction="up"

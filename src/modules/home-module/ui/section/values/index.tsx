@@ -6,6 +6,8 @@ import ValueCard from "../../components/value-card";
 
 import styles from "./styles/light.module.scss";
 import { Slide, Zoom } from "react-awesome-reveal";
+import { useForm } from "../../hooks/useForm";
+import Form from "../../components/form";
 
 const data = [
   {
@@ -35,6 +37,8 @@ const data = [
 ];
 
 const Values = () => {
+  const { contactForm, handleToggleModal } = useForm();
+
   return (
     <div className={styles.contacts}>
       <div className={styles.contactsContainer}>
@@ -58,11 +62,13 @@ const Values = () => {
                 title={e.title}
                 icon={e.icon}
                 description={e.descsription}
+                trigger={handleToggleModal}
               />
             ))}
           </Zoom>
         </div>
       </div>
+      {contactForm && <Form alt isSubmit={handleToggleModal} />}
     </div>
   );
 };

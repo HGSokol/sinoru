@@ -7,18 +7,26 @@ type ValueCardProps = {
   icon: ReactNode;
   title: string;
   description: string;
+  trigger: () => void;
 };
 
-const ValueCard = ({ icon, title, description }: ValueCardProps) => {
+const ValueCard = ({ icon, title, description, trigger }: ValueCardProps) => {
   return (
     <div className={style.card}>
-      <div className={style.icon}>{icon}</div>
-      <div className={style.contentWrapper}>
-        <div className={style.title}>{title}</div>
-        <div className={style.description}>{description}</div>
+      <div>
+        <div className={style.icon}>{icon}</div>
+        <div className={style.contentWrapper}>
+          <div className={style.title}>{title}</div>
+          <div className={style.description}>{description}</div>
+        </div>
       </div>
       <div className={style.buttonWrapper}>
-        <Button width="100%" variant="alternative" text="Оставить заявку" />
+        <Button
+          onClick={trigger}
+          width="100%"
+          variant="alternative"
+          text="Оставить заявку"
+        />
       </div>
     </div>
   );

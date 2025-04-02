@@ -105,6 +105,10 @@
           :nth-child(2) {
             @include flexColumnConstructor(start, start, 0.5rem);
 
+            a:hover {
+              color: $red-50-main;
+            }
+
             @include s {
               gap: 0.875rem;
             }
@@ -193,6 +197,10 @@
         @include text_s($gray-400, 400);
         text-decoration: none;
         cursor: pointer;
+
+        &:hover {
+          color: $red-50-main;
+        }
 
         @include md {
           @include text_xs($gray-0, 400);

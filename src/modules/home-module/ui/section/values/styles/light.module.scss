@@ -72,7 +72,17 @@
         }
 
         & > :nth-child(1) {
-          @include text_l($gray-600);
+          @include text_l($gray-600, 400);
+
+          @include lg {
+            @include text_m($gray-600, 400);
+          }
+          @include md {
+            @include text_s($gray-600, 400);
+          }
+          @include s {
+            width: 95%;
+          }
         }
       }
     }
@@ -87,8 +97,9 @@
       }
 
       & > div {
+        // flex-grow: 1;
         width: 100%;
-        max-width: 23%;
+        max-width: 24%;
         min-width: 233px;
 
         @include s {

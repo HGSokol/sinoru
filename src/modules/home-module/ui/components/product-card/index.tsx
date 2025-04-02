@@ -6,9 +6,15 @@ type ProductCardProps = {
   image: string;
   title: string;
   description: string;
+  trigger: () => void;
 };
 
-const ProductCard = ({ image, title, description }: ProductCardProps) => {
+const ProductCard = ({
+  image,
+  title,
+  description,
+  trigger,
+}: ProductCardProps) => {
   return (
     <div className={style.card}>
       <div
@@ -20,7 +26,12 @@ const ProductCard = ({ image, title, description }: ProductCardProps) => {
         <div className={style.description}>{description}</div>
       </div>
       <div className={style.buttonWrapper}>
-        <Button width="100%" variant="default" text="Оставить заявку" />
+        <Button
+          onClick={trigger}
+          width="100%"
+          variant="default"
+          text="Оставить заявку"
+        />
       </div>
     </div>
   );

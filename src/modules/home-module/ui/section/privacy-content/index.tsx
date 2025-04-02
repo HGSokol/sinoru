@@ -7,12 +7,7 @@ const PrivacyContent = () => {
   return (
     <div id="Contacts" className={styles.contacts}>
       <div className={styles.contactsContainer}>
-        <Slide
-          direction="up"
-          duration={400}
-          triggerOnce
-          // className={styles.fade}
-        >
+        <Slide direction="up" duration={400} triggerOnce>
           <div className={styles.breadCrumbs}>
             <Link to="/">Главная /</Link>
             <span> Политика конфидициальности</span>

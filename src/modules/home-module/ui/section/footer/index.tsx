@@ -3,6 +3,7 @@ import ArrowUp from "~/common/icons/arrow-up";
 import { linkSocial } from "../header";
 
 import style from "./styles/light.module.scss";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const handleUp = () => {
@@ -35,18 +36,18 @@ const Footer = () => {
             <div className={style.infoBlock}>
               <div>Меню</div>
               <div>
-                <a href="#Header">О компании</a>
-                <a href="#Benefits">История бренда</a>
-                <a href="#Products">Продукция</a>
-                <a href="#Steps">Сотрудничество</a>
-                <a href="#Contacts">Контаты</a>
+                <a href="#О компании">О компании</a>
+                <a href="#История бренда">История бренда</a>
+                <a href="#Продукция">Продукция</a>
+                <a href="#Сотрудничество">Сотрудничество</a>
+                <a href="#Контаты">Контаты</a>
               </div>
             </div>
             <div className={style.infoBlock}>
               <div>Контакты</div>
               <div>
-                <a href="malito:Sinoru.ru@gmail.com">Sinoru.ru@gmail.com</a>
-                <a href="tel:+79458346468">+7 (945) 834 64 68</a>
+                <Link to="malito:Sinoru.ru@gmail.com">Sinoru.ru@gmail.com</Link>
+                <Link to="tel:+79458346468">+7 (945) 834 64 68</Link>
               </div>
             </div>
             <div className={style.infoBlock}>
@@ -60,15 +61,15 @@ const Footer = () => {
             <div className={style.linksWrapper}>
               {linkSocial.map((e, i) => {
                 return (
-                  <a
+                  <Link
                     className={style.linkWrapper}
                     key={i}
-                    href={e.link}
+                    to={e.link}
                     target="_blank"
                     rel="noreferrer"
                   >
                     {e.icon}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -79,7 +80,7 @@ const Footer = () => {
         </div>
         <div className={style.links}>
           <div>© 2025</div>
-          <div>Политика конфидициальности</div>
+          <Link to={"/privacy"}>Политика конфидициальности</Link>
         </div>
       </div>
     </div>

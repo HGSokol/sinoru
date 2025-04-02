@@ -5,7 +5,7 @@ import styles from "./styles/light.module.scss";
 
 const Mission = () => {
   return (
-    <div className={styles.contacts}>
+    <div id={"О компании"} className={styles.contacts}>
       <div className={styles.contactsContainer}>
         <Zoom direction="up" duration={700} triggerOnce damping={0.2}>
           <img src={Image} className={styles.image} />

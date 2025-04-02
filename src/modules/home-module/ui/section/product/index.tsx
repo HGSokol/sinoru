@@ -7,6 +7,8 @@ import Image4 from "~/common/assets/back4.webp";
 
 import styles from "./styles/light.module.scss";
 import { Slide, Zoom } from "react-awesome-reveal";
+import { useForm } from "../../hooks/useForm";
+import Form from "../../components/form";
 
 const data = [
   {
@@ -36,8 +38,10 @@ const data = [
 ];
 
 const Product = () => {
+  const { contactForm, handleToggleModal } = useForm();
+
   return (
-    <div className={styles.product}>
+    <div id={"Продукция"} className={styles.product}>
       <div className={styles.productContainer}>
         <Slide direction="up" duration={400} triggerOnce>
           <div className={styles.title}>
@@ -66,10 +70,12 @@ const Product = () => {
               title={e.title}
               image={e.image}
               description={e.descsription}
+              trigger={handleToggleModal}
             />
           ))}
         </div>
       </Zoom>
+      {contactForm && <Form alt isSubmit={handleToggleModal} />}
     </div>
   );
 };
