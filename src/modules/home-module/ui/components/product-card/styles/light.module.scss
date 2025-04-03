@@ -8,10 +8,17 @@
   width: 100%;
   min-height: 401px;
   height: auto;
-  flex: 1;
+  flex: 1 1 350px;
 
   background: $gray-0;
   transition: all 300ms;
+
+  @include md {
+    flex: 0 0 48%;
+  }
+  @include s {
+    width: 100%;
+  }
 
   &:hover {
     .buttonWrapper {

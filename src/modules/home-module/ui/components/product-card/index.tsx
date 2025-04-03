@@ -28,7 +28,7 @@ const ProductCard = ({
       <div className={style.buttonWrapper}>
         <Button
           onClick={trigger}
-          width="100%"
+          width="100"
           variant="default"
           text="Оставить заявку"
         />

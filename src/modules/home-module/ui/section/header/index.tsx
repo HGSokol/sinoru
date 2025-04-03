@@ -21,7 +21,7 @@ const linkList = [
 export const linkSocial = [
   { icon: <Instagram />, link: "https://www.instagram.com/" },
   { icon: <Whatsup />, link: "https://www.whatsapp.com/?lang=ru_RU" },
-  { icon: <Telegram />, link: "tg" },
+  { icon: <Telegram />, link: "https://web.telegram.org/a/" },
 ];
 
 type HeaderProps = {
@@ -84,7 +84,7 @@ const Header = ({ alt }: HeaderProps) => {
                 <ul className={style.navigation}>
                   {linkList.map((e, i) => {
                     return (
-                      <li key={i} onClick={() => setMenu((prev) => !prev)}>
+                      <li key={i} onClick={() => navigate("/")}>
                         <a href={`#${e}`}>{e}</a>
                       </li>
                     );

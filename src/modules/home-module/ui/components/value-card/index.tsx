@@ -23,7 +23,7 @@ const ValueCard = ({ icon, title, description, trigger }: ValueCardProps) => {
       <div className={style.buttonWrapper}>
         <Button
           onClick={trigger}
-          width="100%"
+          width="100"
           variant="alternative"
           text="Оставить заявку"
         />

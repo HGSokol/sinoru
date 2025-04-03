@@ -3,11 +3,11 @@ import Loudspeaker from "~/common/icons/loudspeaker";
 import Lamp from "~/common/icons/lamp";
 import Вriefcase from "~/common/icons/briefcase";
 import ValueCard from "../../components/value-card";
-
-import styles from "./styles/light.module.scss";
-import { Slide, Zoom } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 import { useForm } from "../../hooks/useForm";
 import Form from "../../components/form";
+
+import styles from "./styles/light.module.scss";
 
 const data = [
   {
@@ -55,17 +55,15 @@ const Values = () => {
           </Slide>
         </div>
         <div className={styles.cardsWrapper}>
-          <Zoom duration={700} triggerOnce>
-            {data.map((e) => (
-              <ValueCard
-                key={e.title}
-                title={e.title}
-                icon={e.icon}
-                description={e.descsription}
-                trigger={handleToggleModal}
-              />
-            ))}
-          </Zoom>
+          {data.map((e) => (
+            <ValueCard
+              key={e.title}
+              title={e.title}
+              icon={e.icon}
+              description={e.descsription}
+              trigger={handleToggleModal}
+            />
+          ))}
         </div>
       </div>
       {contactForm && <Form alt isSubmit={handleToggleModal} />}

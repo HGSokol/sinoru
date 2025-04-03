@@ -1,6 +1,7 @@
 @use "/src/common/styles/index.scss" as *;
 
 .header {
+  z-index: 10;
   position: relative;
   @include flexRowConstructor(center, start);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -158,5 +159,6 @@
 }
 
 .headerAlt {
+  z-index: 999;
   background: $gray-700;
 }

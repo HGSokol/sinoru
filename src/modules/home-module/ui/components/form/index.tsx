@@ -3,6 +3,7 @@ import InputMask from "@mona-health/react-input-mask";
 import styles from "./styles/index.module.scss";
 import Cross from "~/common/icons/cross";
 import { Link } from "react-router-dom";
+import { createPortal } from "react-dom";
 
 interface IForm {
   isSubmit?: Dispatch<SetStateAction<boolean>>;
@@ -23,6 +24,12 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
   });
   const [previewError, setPreviewError] = useState(false);
   const [isSend, setIsSend] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     if (previewError && !Object.values(error).includes(true)) {
@@ -72,202 +79,204 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
     }
   };
 
-  return (
-    <>
-      {alt ? (
-        <div
-          onClick={(e) => e.target === e.currentTarget && isSubmit?.(false)}
-          className={styles.contactFormContainer}
-        >
-          <div
-            className={`${styles.formWrapper} ${
-              isSend && styles.sendFormWrapper
-            }`}
-          >
-            <div className={styles.title}>
-              {isSend ? (
-                <div className={styles.sendedWrapper}>
-                  <span>уведомление</span>
-                  <span>Заявка отправлена!</span>
-                  <span>
-                    Спасибо за заявку! Наш менеджер в скором времени свяжется с
-                    вами.
-                  </span>
-                </div>
-              ) : (
-                <>
-                  <div>наши контакты</div>
-                  <div>Свяжитесь с нами!</div>
-                </>
-              )}
+  const formContent = (
+    <div
+      onClick={(e) => e.target === e.currentTarget && isSubmit?.(false)}
+      className={styles.contactFormContainer}
+    >
+      <div
+        className={`${styles.formWrapper} ${isSend && styles.sendFormWrapper}`}
+      >
+        <div className={styles.title}>
+          {isSend ? (
+            <div className={styles.sendedWrapper}>
+              <span>уведомление</span>
+              <span>Заявка отправлена!</span>
+              <span>
+                Спасибо за заявку! Наш менеджер в скором времени свяжется с
+                вами.
+              </span>
             </div>
-            {!isSend && (
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.inputBlock}>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      value={form.name}
-                      onChange={(e) => handleChange("name", e)}
-                      type="text"
-                      placeholder="Name*"
-                      className={`${styles.input} ${
-                        previewError && error.name && styles.inputError
-                      } ${alt && styles.inputAlt}`}
-                    />
-                    {previewError && error.name && (
-                      <span className={styles.error}>*Incorrect data</span>
-                    )}
-                  </div>
-                  <div className={styles.inputWrapper}>
-                    <InputMask
-                      mask={`${
-                        form.phone?.slice(0, 2).includes("8")
-                          ? "9 ( 999 ) 999 - 99 - 99"
-                          : "+9 ( 999 ) 999 - 99 - 99"
-                      }`}
-                      placeholder="Phone*"
-                      inputMode="numeric"
-                      data-pattern={
-                        form.phone?.slice(0, 2).includes("8")
-                          ? "\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
-                          : "\\+\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
-                      }
-                      value={form.phone}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        handleChange("phone", e)
-                      }
-                      className={`${styles.input} ${
-                        previewError && error.phone && styles.inputError
-                      }`}
-                    />
-                    {previewError && error.phone && (
-                      <span className={styles.error}>*Incorrect data</span>
-                    )}
-                  </div>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      value={form.email}
-                      onChange={(e) => handleChange("email", e)}
-                      data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                      placeholder="E-mail*"
-                      inputMode="email"
-                      className={`${styles.input} ${
-                        previewError && error.email && styles.inputError
-                      } ${alt && styles.inputAlt}`}
-                    />
-                    {previewError && error.email && (
-                      <span className={styles.error}>*Incorrect data</span>
-                    )}
-                  </div>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) => handleChange("message", e)}
-                    placeholder="Comment"
-                    className={`${styles.textarea} ${
-                      alt && styles.textareaAlt
-                    }`}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className={`${styles.button} ${
-                    Object.values(error).includes(true) && styles.buttonError
-                  }`}
-                >
-                  <span>Отправить заявку</span>
-                </button>
-              </form>
-            )}
-            {!isSend && (
-              <>
-                <div className={styles.policyLink}>
-                  {"Нажимая кнопку “Отправить заявку”, я соглашаюсь с "}
-                  <Link to="/privacy">политикой конфидициальности</Link>.
-                </div>
-              </>
-            )}
-            <div className={styles.cross} onClick={() => isSubmit?.(false)}>
-              <Cross color="#252528" />
-            </div>
-          </div>
+          ) : (
+            <>
+              <div>наши контакты</div>
+              <div>Свяжитесь с нами!</div>
+            </>
+          )}
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.inputBlock}>
-            <div className={styles.inputWrapper}>
-              <input
-                value={form.name}
-                onChange={(e) => handleChange("name", e)}
-                type="text"
-                placeholder="Name*"
-                className={`${styles.input} ${
-                  previewError && error.name && styles.inputError
-                } ${alt && styles.inputAlt}`}
+        {!isSend && (
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.inputBlock}>
+              <div className={styles.inputWrapper}>
+                <input
+                  value={form.name}
+                  onChange={(e) => handleChange("name", e)}
+                  type="text"
+                  placeholder="Имя*"
+                  className={`${styles.input} ${
+                    previewError && error.name && styles.inputError
+                  } ${alt && styles.inputAlt}`}
+                />
+                {previewError && error.name && (
+                  <span className={styles.error}>*неверный формат</span>
+                )}
+              </div>
+              <div className={styles.inputWrapper}>
+                <InputMask
+                  mask={`${
+                    form.phone?.slice(0, 2).includes("8")
+                      ? "9 ( 999 ) 999 - 99 - 99"
+                      : "+9 ( 999 ) 999 - 99 - 99"
+                  }`}
+                  placeholder="Телефон*"
+                  inputMode="numeric"
+                  data-pattern={
+                    form.phone?.slice(0, 2).includes("8")
+                      ? "\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
+                      : "\\+\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
+                  }
+                  value={form.phone}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleChange("phone", e)
+                  }
+                  className={`${styles.input} ${
+                    previewError && error.phone && styles.inputError
+                  }`}
+                />
+                {previewError && error.phone && (
+                  <span className={styles.error}>*неверный формат</span>
+                )}
+              </div>
+              <div className={styles.inputWrapper}>
+                <input
+                  value={form.email}
+                  onChange={(e) => handleChange("email", e)}
+                  data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  placeholder="E-mail*"
+                  inputMode="email"
+                  className={`${styles.input} ${
+                    previewError && error.email && styles.inputError
+                  } ${alt && styles.inputAlt}`}
+                />
+                {previewError && error.email && (
+                  <span className={styles.error}>*неверный формат</span>
+                )}
+              </div>
+              <textarea
+                value={form.message}
+                onChange={(e) => handleChange("message", e)}
+                placeholder="Сообщение"
+                className={`${styles.textarea} ${alt && styles.textareaAlt}`}
               />
-              {previewError && error.name && (
-                <span className={styles.error}>*Incorrect data</span>
-              )}
             </div>
-            <div className={styles.inputWrapper}>
-              <InputMask
-                mask={`${
-                  form.phone?.slice(0, 2).includes("8")
-                    ? "9 ( 999 ) 999 - 99 - 99"
-                    : "+9 ( 999 ) 999 - 99 - 99"
-                }`}
-                placeholder="Phone*"
-                inputMode="numeric"
-                data-pattern={
-                  form.phone?.slice(0, 2).includes("8")
-                    ? "\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
-                    : "\\+\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
-                }
-                value={form.phone}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  handleChange("phone", e)
-                }
-                className={`${styles.input} ${
-                  previewError && error.phone && styles.inputError
-                }`}
-              />
-              {previewError && error.phone && (
-                <span className={styles.error}>*Incorrect data</span>
-              )}
+            <button
+              type="submit"
+              className={`${styles.button} ${
+                Object.values(error).includes(true) && styles.buttonError
+              }`}
+            >
+              <span>Отправить заявку</span>
+            </button>
+          </form>
+        )}
+        {!isSend && (
+          <>
+            <div className={styles.policyLink}>
+              {"Нажимая кнопку “Отправить заявку”, я соглашаюсь с "}
+              <Link to="/privacy">политикой конфидициальности</Link>.
             </div>
-            <div className={styles.inputWrapper}>
-              <input
-                value={form.email}
-                onChange={(e) => handleChange("email", e)}
-                data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                placeholder="E-mail*"
-                inputMode="email"
-                className={`${styles.input} ${
-                  previewError && error.email && styles.inputError
-                } ${alt && styles.inputAlt}`}
-              />
-              {previewError && error.email && (
-                <span className={styles.error}>*Incorrect data</span>
-              )}
-            </div>
-            <textarea
-              value={form.message}
-              onChange={(e) => handleChange("message", e)}
-              placeholder="Comment"
-              className={`${styles.textarea} ${alt && styles.textareaAlt}`}
-            />
-          </div>
-          <button
-            type="submit"
-            className={`${styles.button} ${
-              Object.values(error).includes(true) && styles.buttonError
-            }`}
-          >
-            <span>Отправить заявку</span>
-          </button>
-        </form>
-      )}
-    </>
+          </>
+        )}
+        <div className={styles.cross} onClick={() => isSubmit?.(false)}>
+          <Cross color="#252528" />
+        </div>
+      </div>
+    </div>
   );
+
+  const regularForm = (
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.inputBlock}>
+        <div className={styles.inputWrapper}>
+          <input
+            value={form.name}
+            onChange={(e) => handleChange("name", e)}
+            type="text"
+            placeholder="Имя*"
+            className={`${styles.input} ${
+              previewError && error.name && styles.inputError
+            } ${alt && styles.inputAlt}`}
+          />
+          {previewError && error.name && (
+            <span className={styles.error}>*неверный формат</span>
+          )}
+        </div>
+        <div className={styles.inputWrapper}>
+          <InputMask
+            mask={`${
+              form.phone?.slice(0, 2).includes("8")
+                ? "9 ( 999 ) 999 - 99 - 99"
+                : "+9 ( 999 ) 999 - 99 - 99"
+            }`}
+            placeholder="Телефон*"
+            inputMode="numeric"
+            data-pattern={
+              form.phone?.slice(0, 2).includes("8")
+                ? "\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
+                : "\\+\\d\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}"
+            }
+            value={form.phone}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleChange("phone", e)
+            }
+            className={`${styles.input} ${
+              previewError && error.phone && styles.inputError
+            }`}
+          />
+          {previewError && error.phone && (
+            <span className={styles.error}>*неверный формат</span>
+          )}
+        </div>
+        <div className={styles.inputWrapper}>
+          <input
+            value={form.email}
+            onChange={(e) => handleChange("email", e)}
+            data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            placeholder="E-mail*"
+            inputMode="email"
+            className={`${styles.input} ${
+              previewError && error.email && styles.inputError
+            } ${alt && styles.inputAlt}`}
+          />
+          {previewError && error.email && (
+            <span className={styles.error}>*неверный формат</span>
+          )}
+        </div>
+        <textarea
+          value={form.message}
+          onChange={(e) => handleChange("message", e)}
+          placeholder="Сообщение"
+          className={`${styles.textarea} ${alt && styles.textareaAlt}`}
+        />
+      </div>
+      <button
+        type="submit"
+        className={`${styles.button} ${
+          Object.values(error).includes(true) && styles.buttonError
+        }`}
+      >
+        <span>Отправить заявку</span>
+      </button>
+    </form>
+  );
+
+  if (!alt) {
+    return regularForm;
+  }
+
+  return mounted
+    ? createPortal(formContent, document.getElementById("root") as HTMLElement)
+    : null;
 };
 
 export default Form;

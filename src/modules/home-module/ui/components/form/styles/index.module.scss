@@ -2,7 +2,7 @@
 
 .form {
   @include flexColumnConstructor(start, start, 2.5rem);
-  z-index: 9999;
+  // z-index: 9999;
 
   padding: 53px 0px 0px 0px;
   max-width: 608px;
@@ -41,19 +41,26 @@
         @include text_l($gray-700, 400);
 
         @include lg {
-          @include text_m($gray-700, 400);
+          height: 59px;
         }
         @include md {
+          @include text_m($gray-700, 400);
+
+          height: 54px;
+        }
+        @include s {
           @include text_s($gray-700, 400);
+
+          height: 52px;
         }
 
         & ::placeholder {
           @include text_l($gray-400, 400);
 
-          @include lg {
+          @include md {
             @include text_m($gray-400, 400);
           }
-          @include md {
+          @include s {
             @include text_s($gray-400, 400);
           }
         }
@@ -114,6 +121,16 @@
 
     background: $red-50-main;
 
+    @include lg {
+      height: 59px;
+    }
+    @include md {
+      height: 54px;
+    }
+    @include s {
+      height: 52px;
+    }
+
     & > :nth-child(1) {
       @include text_l($gray-0, 500);
     }
@@ -124,6 +141,7 @@
 }
 
 .sendedFormWrapper {
+  z-index: 9999;
   @include flexColumnConstructor(start, start);
   position: relative;
 
@@ -179,7 +197,14 @@
         }
       }
       & :nth-child(3) {
-        @include text_l($gray-600);
+        @include text_l($gray-600, 400);
+
+        @include md {
+          @include text_m($gray-600, 400);
+        }
+        @include s {
+          @include text_s($gray-600, 400);
+        }
       }
     }
   }
@@ -191,19 +216,26 @@
   top: 0;
   right: 0;
 
-  width: 64px;
-  height: 64px;
+  width: 20px;
+  height: 20px;
 
   cursor: pointer;
+
+  @include s {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .contactFormContainer {
   @include flexRowConstructor(center, center);
-  z-index: 100;
+  z-index: 9999;
 
   position: fixed;
   width: 100vw;
   height: 100dvh;
+
+  backdrop-filter: blur(10px);
 
   top: 0;
   left: 0;
@@ -289,15 +321,12 @@
 
         & :nth-child(1) {
           @include label_l($red-50-main);
-          margin-bottom: 18px;
 
           @include md {
-            margin-bottom: 16px;
             @include label_m($red-50-main);
           }
 
           @include s {
-            margin-bottom: 16px;
             @include label_s($red-50-main);
           }
         }
@@ -316,8 +345,14 @@
           }
         }
         & :nth-child(3) {
-          @include text_l($gray-600);
-          font-size: 20px;
+          @include text_l($gray-600, 400);
+
+          @include md {
+            @include text_m($gray-600, 400);
+          }
+          @include s {
+            @include text_s($gray-600, 400);
+          }
         }
       }
     }
