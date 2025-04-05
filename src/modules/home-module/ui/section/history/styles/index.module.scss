@@ -64,7 +64,12 @@
       row-gap: 60px;
       column-gap: 20px;
 
+      @include lg {
+        row-gap: 50px;
+        column-gap: 20px;
+      }
       @include s {
+        gap: 1.5rem;
         flex-direction: column;
       }
 
@@ -73,7 +78,14 @@
 
         max-width: 47%;
 
+        @include lg {
+          gap: 1rem;
+        }
+        @include md {
+          gap: 0.75rem;
+        }
         @include s {
+          gap: 0.5rem;
           max-width: none;
           width: 100%;
         }
@@ -83,9 +95,29 @@
           @include h4($gray-700);
 
           border-bottom: 1px solid $gray-200;
+          padding-bottom: 1.25rem;
+
+          @include lg {
+            padding-bottom: 0.75rem;
+            @include h5($gray-700);
+          }
+          @include md {
+            padding-bottom: 0.55rem;
+            @include h6($gray-700);
+          }
+          @include md {
+            padding-bottom: 0.3rem;
+          }
         }
         & :nth-child(2) {
           @include text_l($gray-500, 400);
+
+          @include lg {
+            @include text_m($gray-500, 400);
+          }
+          @include md {
+            @include text_s($gray-500, 400);
+          }
         }
       }
     }

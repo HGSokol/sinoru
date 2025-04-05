@@ -1,7 +1,7 @@
-import Button from "~/modules/home-module/ui/components/button";
-
-import style from "./styles/light.module.scss";
 import { ReactNode } from "react";
+import { Button } from "~/modules/home-module/ui/components";
+
+import style from "./styles/index.module.scss";
 
 type ValueCardProps = {
   icon: ReactNode;
@@ -10,7 +10,12 @@ type ValueCardProps = {
   trigger: () => void;
 };
 
-const ValueCard = ({ icon, title, description, trigger }: ValueCardProps) => {
+export const ValueCard = ({
+  icon,
+  title,
+  description,
+  trigger,
+}: ValueCardProps) => {
   return (
     <div className={style.card}>
       <div>
@@ -31,5 +36,3 @@ const ValueCard = ({ icon, title, description, trigger }: ValueCardProps) => {
     </div>
   );
 };
-
-export default ValueCard;

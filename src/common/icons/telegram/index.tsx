@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Telegram: FC<IIcon> = ({ ...props }) => {
+export const Telegram: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="25"
@@ -20,5 +20,3 @@ const Telegram: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Telegram;

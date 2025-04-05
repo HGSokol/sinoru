@@ -1,17 +1,16 @@
-import Slider from "../slider";
-import light from "./styles/light.module.scss";
+import { Slider } from "~/modules/home-module/ui/components";
 
-type HeaderContainerProps = {
+import style from "./styles/index.module.scss";
+
+export type HeaderContainerProps = {
   children: React.ReactNode;
 };
 
-const HeaderContainer = ({ children }: HeaderContainerProps) => {
+export const HeaderContainer = ({ children }: HeaderContainerProps) => {
   return (
-    <div className={light.headerWrapper}>
+    <div className={style.headerWrapper}>
       <Slider />
-      <div className={light.innerComponents}>{children}</div>
+      <div className={style.innerComponents}>{children}</div>
     </div>
   );
 };
-
-export default HeaderContainer;

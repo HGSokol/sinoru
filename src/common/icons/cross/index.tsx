@@ -8,7 +8,7 @@ export interface IFlame {
   className?: string;
 }
 
-const Cross: FC<IFlame> = ({ ...props }) => {
+export const Cross: FC<IFlame> = ({ ...props }) => {
   return (
     <svg
       width="20"
@@ -25,5 +25,3 @@ const Cross: FC<IFlame> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Cross;

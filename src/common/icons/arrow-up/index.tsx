@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const ArrowUp: FC<IIcon> = ({ ...props }) => {
+export const ArrowUp: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="20"
@@ -21,5 +21,3 @@ const ArrowUp: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default ArrowUp;

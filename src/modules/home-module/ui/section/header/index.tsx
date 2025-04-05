@@ -1,14 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import BurgerMenu from "~/common/icons/burger";
-import Logo from "~/common/icons/logo";
-import Cross from "~/common/icons/cross";
-import Instagram from "~/common/icons/instagram";
-import Whatsup from "~/common/icons/whatsup";
-import Telegram from "~/common/icons/telegram";
+import {
+  Burger,
+  Logo,
+  Cross,
+  Instagram,
+  Whatsup,
+  Telegram,
+} from "~/common/icons";
 
-import style from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
 const linkList = [
   "О компании",
@@ -28,7 +30,7 @@ type HeaderProps = {
   alt?: boolean;
 };
 
-const Header = ({ alt }: HeaderProps) => {
+export const Header = ({ alt }: HeaderProps) => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
 
@@ -63,7 +65,7 @@ const Header = ({ alt }: HeaderProps) => {
           onClick={() => setMenu((prev) => !prev)}
           className={style.burgerMenu}
         >
-          {menu ? <Cross /> : <BurgerMenu />}
+          {menu ? <Cross /> : <Burger />}
         </div>
         {menu && (
           <div
@@ -113,5 +115,3 @@ const Header = ({ alt }: HeaderProps) => {
     </div>
   );
 };
-
-export default Header;

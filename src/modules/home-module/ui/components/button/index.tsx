@@ -1,5 +1,6 @@
 import { FC } from "react";
-import style from "./styles/light.module.scss";
+
+import style from "./styles/index.module.scss";
 
 type ButtonProps = {
   text: string;
@@ -7,7 +8,7 @@ type ButtonProps = {
   variant?: "default" | "alternative";
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   text,
   width,
   variant = "default",
@@ -23,5 +24,3 @@ const Button: FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;

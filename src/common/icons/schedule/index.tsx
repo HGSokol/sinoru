@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Schedule: FC<IIcon> = ({ ...props }) => {
+export const Schedule: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="24"
@@ -18,5 +18,3 @@ const Schedule: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Schedule;

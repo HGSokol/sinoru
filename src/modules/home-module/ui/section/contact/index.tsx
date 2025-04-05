@@ -1,19 +1,17 @@
-import Geo from "~/common/icons/geo";
-import Mail from "~/common/icons/mail";
-import Phone from "~/common/icons/phone";
-import Form from "../../components/form";
-
-import styles from "./styles/light.module.scss";
-import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
+import { Form } from "~/modules/home-module/ui/components";
+import { Geo, Mail, Phone } from "~/common/icons";
 
-const Contact = () => {
+import style from "./styles/index.module.scss";
+
+export const Contact = () => {
   return (
-    <div id="Контакты" className={styles.contacts}>
-      <div className={styles.contactsContainer}>
-        <div className={styles.info}>
+    <div id="Контакты" className={style.contacts}>
+      <div className={style.contactsContainer}>
+        <div className={style.info}>
           <Slide direction="up" duration={400} triggerOnce>
-            <div className={styles.infoTitle}>
+            <div className={style.infoTitle}>
               <span>наши контакты</span>
               <span>Свяжитесь с нами!</span>
               <span>
@@ -21,8 +19,8 @@ const Contact = () => {
                 заявку, и наши специалисты свяжутся с вами в ближайшее время.
               </span>
             </div>
-            <div className={styles.infoBlock}>
-              <div className={styles.infoRow}>
+            <div className={style.infoBlock}>
+              <div className={style.infoRow}>
                 <div>
                   <Geo />
                 </div>
@@ -33,13 +31,13 @@ const Contact = () => {
                   ул. Московская, 294, Москва, Россия
                 </Link>
               </div>
-              <div className={styles.infoRow}>
+              <div className={style.infoRow}>
                 <div>
                   <Mail />
                 </div>
                 <Link to="mailto:sinoru.ru@gmail.com">Sinoru.ru@gmail.com</Link>
               </div>
-              <div className={styles.infoRow}>
+              <div className={style.infoRow}>
                 <div>
                   <Phone />
                 </div>
@@ -53,5 +51,3 @@ const Contact = () => {
     </div>
   );
 };
-
-export default Contact;

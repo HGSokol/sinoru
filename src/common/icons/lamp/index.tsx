@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Lamp: FC<IIcon> = ({ ...props }) => {
+export const Lamp: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="18"
@@ -18,5 +18,3 @@ const Lamp: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Lamp;

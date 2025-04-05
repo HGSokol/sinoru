@@ -1,6 +1,6 @@
-import Button from "~/modules/home-module/ui/components/button";
+import { Button } from "~/modules/home-module/ui/components";
 
-import style from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
 type ProductCardProps = {
   image: string;
@@ -9,7 +9,7 @@ type ProductCardProps = {
   trigger: () => void;
 };
 
-const ProductCard = ({
+export const ProductCard = ({
   image,
   title,
   description,
@@ -36,5 +36,3 @@ const ProductCard = ({
     </div>
   );
 };
-
-export default ProductCard;

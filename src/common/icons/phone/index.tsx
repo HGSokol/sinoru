@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Phone: FC<IIcon> = ({ ...props }) => {
+export const Phone: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="16"
@@ -18,5 +18,3 @@ const Phone: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Phone;

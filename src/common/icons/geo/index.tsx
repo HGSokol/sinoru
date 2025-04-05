@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Geo: FC<IIcon> = ({ ...props }) => {
+export const Geo: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="14"
@@ -20,5 +20,3 @@ const Geo: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Geo;

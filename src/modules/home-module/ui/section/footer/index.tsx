@@ -1,11 +1,10 @@
-import Logo from "~/common/icons/logo";
-import ArrowUp from "~/common/icons/arrow-up";
-import { linkSocial } from "../header";
-
-import style from "./styles/light.module.scss";
 import { Link } from "react-router-dom";
+import { linkSocial } from "~/modules/home-module/ui/section";
+import { Logo, ArrowUp } from "~/common/icons";
 
-const Footer = () => {
+import style from "./styles/index.module.scss";
+
+export const Footer = () => {
   const handleUp = () => {
     window.scrollTo(0, 0);
   };
@@ -46,7 +45,7 @@ const Footer = () => {
             <div className={style.infoBlock}>
               <div>Контакты</div>
               <div>
-                <Link to="malito:Sinoru.ru@gmail.com">Sinoru.ru@gmail.com</Link>
+                <Link to="mailto:sinoru.ru@gmail.com">Sinoru.ru@gmail.com</Link>
                 <Link to="tel:+79458346468">+7 (945) 834 64 68</Link>
               </div>
             </div>
@@ -86,5 +85,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;

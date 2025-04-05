@@ -37,7 +37,7 @@
       width: 100%;
 
       @include s {
-        gap: 2rem;
+        gap: 1.5rem;
       }
 
       .infoTitle {
@@ -69,6 +69,7 @@
             @include h3($gray-700);
           }
           @include s {
+            margin-bottom: 15px;
             @include h4($gray-700);
           }
         }
@@ -81,7 +82,7 @@
             text-transform: none;
           }
           @include md {
-            @include label_s($gray-600, 400);
+            @include text_s($gray-600, 400);
             text-transform: none;
           }
         }
@@ -119,7 +120,7 @@
               text-transform: none;
             }
             @include s {
-              @include label_s($gray-600, 400);
+              @include text_s($gray-600, 400);
               text-transform: none;
             }
           }

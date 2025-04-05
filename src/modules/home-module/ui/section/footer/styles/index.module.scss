@@ -118,20 +118,16 @@
               opacity: 0.8;
 
               @include md {
-                @include text_s($gray-0, 400);
+                @include text_s($gray-300, 400);
               }
               @include s {
-                @include text_xs($gray-0, 400);
+                @include text_xs($gray-300, 400);
               }
             }
             & > a {
               transition: all 150ms;
               cursor: pointer;
               text-decoration: none;
-
-              &:hover {
-                // color: $accent-0;
-              }
             }
           }
         }
@@ -190,7 +186,7 @@
         @include text_s($gray-400, 400);
 
         @include md {
-          @include text_xs($gray-0, 400);
+          @include text_xs($gray-400, 400);
         }
       }
       :nth-child(2) {
@@ -203,7 +199,7 @@
         }
 
         @include md {
-          @include text_xs($gray-0, 400);
+          @include text_xs($gray-400, 400);
         }
       }
     }

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Loudspeaker: FC<IIcon> = ({ ...props }) => {
+export const Loudspeaker: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="26"
@@ -18,5 +18,3 @@ const Loudspeaker: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Loudspeaker;

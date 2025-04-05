@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Burger: FC<IIcon> = ({ ...props }) => {
+export const Burger: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="18"
@@ -21,5 +21,3 @@ const Burger: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Burger;

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Вriefcase: FC<IIcon> = ({ ...props }) => {
+export const Вriefcase: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="30"
@@ -18,5 +18,3 @@ const Вriefcase: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Вriefcase;

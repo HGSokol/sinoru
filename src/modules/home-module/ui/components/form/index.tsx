@@ -1,16 +1,17 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
-import InputMask from "@mona-health/react-input-mask";
-import styles from "./styles/index.module.scss";
-import Cross from "~/common/icons/cross";
-import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
+import InputMask from "@mona-health/react-input-mask";
+import { Cross } from "~/common/icons";
+
+import style from "./styles/index.module.scss";
 
 interface IForm {
   isSubmit?: Dispatch<SetStateAction<boolean>>;
   alt?: boolean;
 }
 
-const Form: FC<IForm> = ({ isSubmit, alt }) => {
+export const Form: FC<IForm> = ({ isSubmit, alt }) => {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -82,14 +83,14 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
   const formContent = (
     <div
       onClick={(e) => e.target === e.currentTarget && isSubmit?.(false)}
-      className={styles.contactFormContainer}
+      className={style.contactFormContainer}
     >
       <div
-        className={`${styles.formWrapper} ${isSend && styles.sendFormWrapper}`}
+        className={`${style.formWrapper} ${isSend && style.sendFormWrapper}`}
       >
-        <div className={styles.title}>
+        <div className={style.title}>
           {isSend ? (
-            <div className={styles.sendedWrapper}>
+            <div className={style.sendedWrapper}>
               <span>уведомление</span>
               <span>Заявка отправлена!</span>
               <span>
@@ -105,23 +106,23 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
           )}
         </div>
         {!isSend && (
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.inputBlock}>
-              <div className={styles.inputWrapper}>
+          <form onSubmit={handleSubmit} className={style.form}>
+            <div className={style.inputBlock}>
+              <div className={style.inputWrapper}>
                 <input
                   value={form.name}
                   onChange={(e) => handleChange("name", e)}
                   type="text"
                   placeholder="Имя*"
-                  className={`${styles.input} ${
-                    previewError && error.name && styles.inputError
-                  } ${alt && styles.inputAlt}`}
+                  className={`${style.input} ${
+                    previewError && error.name && style.inputError
+                  } ${alt && style.inputAlt}`}
                 />
                 {previewError && error.name && (
-                  <span className={styles.error}>*неверный формат</span>
+                  <span className={style.error}>*неверный формат</span>
                 )}
               </div>
-              <div className={styles.inputWrapper}>
+              <div className={style.inputWrapper}>
                 <InputMask
                   mask={`${
                     form.phone?.slice(0, 2).includes("8")
@@ -139,40 +140,40 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     handleChange("phone", e)
                   }
-                  className={`${styles.input} ${
-                    previewError && error.phone && styles.inputError
+                  className={`${style.input} ${
+                    previewError && error.phone && style.inputError
                   }`}
                 />
                 {previewError && error.phone && (
-                  <span className={styles.error}>*неверный формат</span>
+                  <span className={style.error}>*неверный формат</span>
                 )}
               </div>
-              <div className={styles.inputWrapper}>
+              <div className={style.inputWrapper}>
                 <input
                   value={form.email}
                   onChange={(e) => handleChange("email", e)}
                   data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   placeholder="E-mail*"
                   inputMode="email"
-                  className={`${styles.input} ${
-                    previewError && error.email && styles.inputError
-                  } ${alt && styles.inputAlt}`}
+                  className={`${style.input} ${
+                    previewError && error.email && style.inputError
+                  } ${alt && style.inputAlt}`}
                 />
                 {previewError && error.email && (
-                  <span className={styles.error}>*неверный формат</span>
+                  <span className={style.error}>*неверный формат</span>
                 )}
               </div>
               <textarea
                 value={form.message}
                 onChange={(e) => handleChange("message", e)}
                 placeholder="Сообщение"
-                className={`${styles.textarea} ${alt && styles.textareaAlt}`}
+                className={`${style.textarea} ${alt && style.textareaAlt}`}
               />
             </div>
             <button
               type="submit"
-              className={`${styles.button} ${
-                Object.values(error).includes(true) && styles.buttonError
+              className={`${style.button} ${
+                Object.values(error).includes(true) && style.buttonError
               }`}
             >
               <span>Отправить заявку</span>
@@ -181,13 +182,13 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
         )}
         {!isSend && (
           <>
-            <div className={styles.policyLink}>
+            <div className={style.policyLink}>
               {"Нажимая кнопку “Отправить заявку”, я соглашаюсь с "}
               <Link to="/privacy">политикой конфидициальности</Link>.
             </div>
           </>
         )}
-        <div className={styles.cross} onClick={() => isSubmit?.(false)}>
+        <div className={style.cross} onClick={() => isSubmit?.(false)}>
           <Cross color="#252528" />
         </div>
       </div>
@@ -195,23 +196,23 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
   );
 
   const regularForm = (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <div className={styles.inputBlock}>
-        <div className={styles.inputWrapper}>
+    <form onSubmit={handleSubmit} className={style.form}>
+      <div className={style.inputBlock}>
+        <div className={style.inputWrapper}>
           <input
             value={form.name}
             onChange={(e) => handleChange("name", e)}
             type="text"
             placeholder="Имя*"
-            className={`${styles.input} ${
-              previewError && error.name && styles.inputError
-            } ${alt && styles.inputAlt}`}
+            className={`${style.input} ${
+              previewError && error.name && style.inputError
+            } ${alt && style.inputAlt}`}
           />
           {previewError && error.name && (
-            <span className={styles.error}>*неверный формат</span>
+            <span className={style.error}>*неверный формат</span>
           )}
         </div>
-        <div className={styles.inputWrapper}>
+        <div className={style.inputWrapper}>
           <InputMask
             mask={`${
               form.phone?.slice(0, 2).includes("8")
@@ -229,40 +230,40 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleChange("phone", e)
             }
-            className={`${styles.input} ${
-              previewError && error.phone && styles.inputError
+            className={`${style.input} ${
+              previewError && error.phone && style.inputError
             }`}
           />
           {previewError && error.phone && (
-            <span className={styles.error}>*неверный формат</span>
+            <span className={style.error}>*неверный формат</span>
           )}
         </div>
-        <div className={styles.inputWrapper}>
+        <div className={style.inputWrapper}>
           <input
             value={form.email}
             onChange={(e) => handleChange("email", e)}
             data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
             placeholder="E-mail*"
             inputMode="email"
-            className={`${styles.input} ${
-              previewError && error.email && styles.inputError
-            } ${alt && styles.inputAlt}`}
+            className={`${style.input} ${
+              previewError && error.email && style.inputError
+            } ${alt && style.inputAlt}`}
           />
           {previewError && error.email && (
-            <span className={styles.error}>*неверный формат</span>
+            <span className={style.error}>*неверный формат</span>
           )}
         </div>
         <textarea
           value={form.message}
           onChange={(e) => handleChange("message", e)}
           placeholder="Сообщение"
-          className={`${styles.textarea} ${alt && styles.textareaAlt}`}
+          className={`${style.textarea} ${alt && style.textareaAlt}`}
         />
       </div>
       <button
         type="submit"
-        className={`${styles.button} ${
-          Object.values(error).includes(true) && styles.buttonError
+        className={`${style.button} ${
+          Object.values(error).includes(true) && style.buttonError
         }`}
       >
         <span>Отправить заявку</span>
@@ -278,5 +279,3 @@ const Form: FC<IForm> = ({ isSubmit, alt }) => {
     ? createPortal(formContent, document.getElementById("root") as HTMLElement)
     : null;
 };
-
-export default Form;

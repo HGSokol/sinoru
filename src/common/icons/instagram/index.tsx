@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Instagram: FC<IIcon> = ({ ...props }) => {
+export const Instagram: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="30"
@@ -24,5 +24,3 @@ const Instagram: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Instagram;

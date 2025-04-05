@@ -1,7 +1,8 @@
-import { useIntersectionObserver } from "../../hooks/useObserver";
-import styles from "./styles/light.module.scss";
+import { useIntersectionObserver } from "~/modules/home-module/ui/hooks";
 
-const Section = ({ children }: { children: React.ReactNode }) => {
+import style from "./styles/index.module.scss";
+
+export const Section = ({ children }: { children: React.ReactNode }) => {
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold: 0.3,
   });
@@ -9,11 +10,9 @@ const Section = ({ children }: { children: React.ReactNode }) => {
   return (
     <section
       ref={ref}
-      className={`${styles.section} ${isIntersecting && styles.visible}`}
+      className={`${style.section} ${isIntersecting && style.visible}`}
     >
       {children}
     </section>
   );
 };
-
-export default Section;

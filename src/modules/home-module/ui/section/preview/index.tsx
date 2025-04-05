@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-import { linkSocial } from "../header";
-import { useForm } from "../../hooks/useForm";
-import Button from "../../components/button";
-import Form from "../../components/form";
+import { linkSocial } from "~/modules/home-module/ui/section";
+import { Button, Form } from "~/modules/home-module/ui/components";
+import { useForm } from "~/modules/home-module/ui/hooks";
 
-import style from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
-const Preview = () => {
+export const Preview = () => {
   const { contactForm, handleToggleModal } = useForm();
 
   return (

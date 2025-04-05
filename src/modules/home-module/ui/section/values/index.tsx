@@ -1,13 +1,9 @@
-import Schedule from "~/common/icons/schedule";
-import Loudspeaker from "~/common/icons/loudspeaker";
-import Lamp from "~/common/icons/lamp";
-import Вriefcase from "~/common/icons/briefcase";
-import ValueCard from "../../components/value-card";
 import { Slide } from "react-awesome-reveal";
-import { useForm } from "../../hooks/useForm";
-import Form from "../../components/form";
+import { ValueCard, Form } from "~/modules/home-module/ui/components";
+import { useForm } from "~/modules/home-module/ui/hooks";
+import { Schedule, Loudspeaker, Lamp, Вriefcase } from "~/common/icons";
 
-import styles from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
 const data = [
   {
@@ -36,13 +32,13 @@ const data = [
   },
 ];
 
-const Values = () => {
+export const Values = () => {
   const { contactForm, handleToggleModal } = useForm();
 
   return (
-    <div className={styles.contacts}>
-      <div className={styles.contactsContainer}>
-        <div className={styles.title}>
+    <div className={style.contacts}>
+      <div className={style.contactsContainer}>
+        <div className={style.title}>
           <Slide direction="up" duration={400} triggerOnce>
             <div>
               <div>Основы корпоративной культуры</div>
@@ -54,7 +50,7 @@ const Values = () => {
             </div>
           </Slide>
         </div>
-        <div className={styles.cardsWrapper}>
+        <div className={style.cardsWrapper}>
           {data.map((e) => (
             <ValueCard
               key={e.title}
@@ -70,5 +66,3 @@ const Values = () => {
     </div>
   );
 };
-
-export default Values;

@@ -1,19 +1,21 @@
-import HeaderContainer from "../../components/header-container";
-import Contact from "../../section/contact";
-import Footer from "../../section/footer";
-import Header from "../../section/header";
-import Mission from "../../section/mission";
-import Preview from "../../section/preview";
-import Values from "../../section/values";
-import History from "../../section/history";
-import Product from "../../section/product";
-import Offer from "../../section/offer";
+import { HeaderContainer } from "~/modules/home-module/ui/components";
+import {
+  Contact,
+  Footer,
+  Header,
+  Mission,
+  Preview,
+  Values,
+  History,
+  Product,
+  Offer,
+} from "~/modules/home-module/ui/section";
 
-import styles from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
 const HomePage = () => {
   return (
-    <div className={styles.pageWrapper}>
+    <div className={style.pageWrapper}>
       <HeaderContainer>
         <Header />
         <Preview />
@@ -22,7 +24,7 @@ const HomePage = () => {
       <Values />
       <History />
       <Product />
-      <div className={styles.mapWrapper}>
+      <div className={style.mapWrapper}>
         <Offer />
         <Contact />
       </div>

@@ -1,6 +1,6 @@
 import { Slide } from "react-awesome-reveal";
 
-import styles from "./styles/light.module.scss";
+import style from "./styles/index.module.scss";
 
 const data = [
   {
@@ -25,40 +25,38 @@ const data = [
   },
 ];
 
-const History = () => {
+export const History = () => {
   return (
-    <div id={"История бренда"} className={styles.contacts}>
-      <div className={styles.contactsContainer}>
+    <div id={"История бренда"} className={style.contacts}>
+      <div className={style.contactsContainer}>
         <Slide
           direction="up"
           duration={400}
           triggerOnce
-          className={styles.title}
+          className={style.title}
         >
-          <div className={styles.title}>
+          <div className={style.title}>
             <div>как все начиналось</div>
             <div>История нашего бренда</div>
           </div>
         </Slide>
         <Slide direction="up" duration={700} triggerOnce>
-          <div className={styles.cardsWrapper}>
+          <div className={style.cardsWrapper}>
             {data.map((e) => (
-              <div key={e.title} className={styles.cardWrapper}>
+              <div key={e.title} className={style.cardWrapper}>
                 <div>{e.title}</div>
                 <div>{e.description}</div>
               </div>
             ))}
           </div>
         </Slide>
-        <div className={styles.photoWrapper}>
-          <div className={styles.photo1}></div>
-          <div className={styles.photo2}></div>
-          <div className={styles.photo3}></div>
-          <div className={styles.photo4}></div>
+        <div className={style.photoWrapper}>
+          <div className={style.photo1}></div>
+          <div className={style.photo2}></div>
+          <div className={style.photo3}></div>
+          <div className={style.photo4}></div>
         </div>
       </div>
     </div>
   );
 };
-
-export default History;

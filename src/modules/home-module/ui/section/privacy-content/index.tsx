@@ -1,9 +1,9 @@
 import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
-import styles from "./styles/light.module.scss";
+import styles from "./styles/index.module.scss";
 
-const PrivacyContent = () => {
+export const PrivacyContent = () => {
   return (
     <div id="Contacts" className={styles.contacts}>
       <div className={styles.contactsContainer}>
@@ -194,5 +194,3 @@ const PrivacyContent = () => {
     </div>
   );
 };
-
-export default PrivacyContent;

@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { IIcon } from "~/common/types/icon";
 
-const Mail: FC<IIcon> = ({ ...props }) => {
+export const Mail: FC<IIcon> = ({ ...props }) => {
   return (
     <svg
       width="16"
@@ -18,5 +18,3 @@ const Mail: FC<IIcon> = ({ ...props }) => {
     </svg>
   );
 };
-
-export default Mail;

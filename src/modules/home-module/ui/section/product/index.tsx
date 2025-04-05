@@ -1,14 +1,13 @@
-import ProductCard from "../../components/product-card";
+import { Slide, Zoom } from "react-awesome-reveal";
+import { useForm } from "~/modules/home-module/ui/hooks";
+import { Form, ProductCard } from "~/modules/home-module/ui/components";
 
 import Image1 from "~/common/assets/back1.webp";
 import Image2 from "~/common/assets/back2.webp";
 import Image3 from "~/common/assets/back3.webp";
 import Image4 from "~/common/assets/back4.webp";
 
-import styles from "./styles/light.module.scss";
-import { Slide, Zoom } from "react-awesome-reveal";
-import { useForm } from "../../hooks/useForm";
-import Form from "../../components/form";
+import styles from "./styles/index.module.scss";
 
 const data = [
   {
@@ -37,7 +36,7 @@ const data = [
   },
 ];
 
-const Product = () => {
+export const Product = () => {
   const { contactForm, handleToggleModal } = useForm();
 
   return (
@@ -79,5 +78,3 @@ const Product = () => {
     </div>
   );
 };
-
-export default Product;
